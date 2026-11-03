@@ -1,4 +1,5 @@
 # PUMPKIN AA-12V 탐사로버 (SRC Rover)
+<img width="1275" height="796" alt="image" src="https://github.com/user-attachments/assets/a66b8ee2-d262-43f1-bc53-337e6f2f9447" />
 
 > 선 한 가닥씩 따라 만드는 교육용 탐사로버 · **PUMPKIN IDEA FACTORY MAKERSPACE**
 
