@@ -1,39 +1,3 @@
-/* =====================================================================
-   AA-12V 탐사로버  —  ESP32-CAM (AI-Thinker) 영상 서버
-   PUMPKIN IDEA FACTORY MAKERSPACE / SRC 교육용
-   ---------------------------------------------------------------------
-   - 전원: L298N 의 5V / GND 만 연결 (데이터선 없음)
-     → 5V-GND 핀 바로 옆에 1000µF(10~16V) 전해 + 0.1µF 세라믹 콘덴서 권장
-   - 보드 설정: "AI Thinker ESP32-CAM", Partition "Huge APP", PSRAM Enabled
-   - 업로드: FTDI U0R/U0T 연결, IO0-GND 연결 후 리셋 → 업로드 → IO0 분리 후 리셋
-
-   ■ 연결 방식 2가지 (CAM_MODE)
-     CAM_MODE_AP  (기본, 메이커톤 권장)
-        ESP32-CAM 이 직접 Wi-Fi 를 만듭니다. 노트북은 그 Wi-Fi 에 접속합니다.
-        SSID  PUMPKIN-CAM-07 / 비밀번호 pumpkin07  (07 = TEAM_ID)
-        주소  http://192.168.4.1  (모든 팀이 같은 주소 → GCS 설정이 쉬움)
-        팀 번호에 따라 채널을 1 / 6 / 11 로 나눠서 팀끼리 전파가 덜 부딪힙니다.
-     CAM_MODE_STA
-        노트북 모바일 핫스팟에 접속 (팀 수가 적을 때). IP 는 빨간 LED 로 알려줌.
-
-   ■ 여러 팀이 함께 쓸 때 끊기는 이유와 이 코드의 대책
-     2.4GHz 에서 서로 겹치지 않는 채널은 3개(1/6/11)뿐인데, 노트북 핫스팟은
-     채널을 고를 수 없어 여러 팀이 같은 채널에 몰립니다. 같은 채널의 팀들은
-     공중(airtime)을 나눠 쓰므로, VGA 영상 3~4개만 넘어도 모두 끊깁니다.
-       ① 팀별 채널 고정 (TEAM_ID → 1/6/11)
-       ② 영상 데이터량 줄이기: 기본 QVGA, 초당 12장 제한 (VGA 무제한 대비 약 1/5)
-       ③ 느린 802.11b 속도 끄기 → 같은 데이터를 더 짧은 시간에 전송
-       ④ 20MHz 대역폭 고정, 송신출력 낮춤 → 옆 팀에 덜 퍼짐, 순간전류도 감소
-       ⑤ 접속 1대 제한 → 다른 팀 노트북이 잘못 붙지 않음
-
-   접속 주소
-     http://IP/            상태 페이지
-     http://IP:81/stream   MJPEG 실시간 영상  (GCS 가 사용)
-     http://IP/capture     JPEG 한 장
-     http://IP/status      JSON 상태
-     http://IP/control?var=vflip|hmirror|framesize|quality|brightness|led|fps&val=N
-   모든 응답에 Access-Control-Allow-Origin:* → GCS(HTML)가 영상분석 가능
-   ===================================================================== */
 #include "esp_camera.h"
 #include <WiFi.h>
 #include "esp_wifi.h"
