@@ -234,6 +234,13 @@ I2C 주소는 `0x76` 또는 `0x77` — 펌웨어가 자동 탐색합니다.
 
 ![ESP32-CAM](docs/images/fig_esp32cam.png)
 
+
+보드매니저 설치방법
+- 아래의 내용을 복사해서 아두이노 IDE의 설정에 복사붙여넣기 후, 보드매니저에서 esp32 설치
+https://dl.espressif.com/dl/package_esp32_index.json
+
+
+
 - 로버에서는 **`5V` · `GND` 두 선만** 연결
 - 전원은 반드시 **L298N `+5V`** 에서 (나노 5V 핀 ❌, 3.3V 핀 ❌)
 - 바로 옆에 1000µF + 0.1µF 콘덴서
