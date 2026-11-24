@@ -5,6 +5,8 @@
 `Rover_GCS_VER3.html` 하나로 AA-12V 탐사로버를 연결하고, 영상을 보고, 6가지 미션을 수행하고, 데이터를 엑셀로 저장합니다. 설치할 것은 없고, 파일을 브라우저로 열면 바로 실행됩니다.
 
 <img src="images/view_op.png" alt="GCS 운용 화면 (시뮬레이션 모드)" width="100%">
+<img width="2400" height="1350" alt="view_op" src="https://github.com/user-attachments/assets/15a42c92-fcc2-4c2a-9797-93bc401b1163" />
+
 
 > 이 설명서의 사진은 모두 실제 GCS 를 **🧪 시뮬레이션 모드**로 실행해 찍은 화면입니다. 실제 로버를 연결하면 영상 배지가 `SIM CAM` 대신 `ESP32-CAM` 으로 나오고 시뮬레이션 카드가 없습니다.
 
